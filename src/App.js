@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import Button from "./Components/Button/Button"
+
+const primaryButtons = {
+  classes: [
+    "btn-primary",
+    "btn-secondary",
+    "btn-success",
+    "btn-danger",
+    "btn-warning",
+    "btn-info",
+    "btn-light",
+    "btn-dark",
+    "btn-link"
+  ],
+  buttonNames: [
+    "Primary",
+    "Secondary",
+    "Success",
+    "Danger",
+    "Warning",
+    "Info",
+    "Light",
+    "Dark",
+    "Link"
+  ]
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      <div className="row">
+        <div className="col-sm">
+          {primaryButtons.classes.map((value, index) => {
+            return <Button key={value + primaryButtons.buttonNames[index]} classes={"btn " + value} buttonName={primaryButtons.buttonNames[index]}/>
+          })}
+        </div>
+      </div>
     </div>
   );
 }
